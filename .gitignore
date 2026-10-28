@@ -1,0 +1,4 @@
+App/.dart_tool
+
+backend/.env
+backend/node_modules/
