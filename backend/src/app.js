@@ -22,9 +22,13 @@ app.get('/health/db', async (req, res) => {
     res.status(500).json({ status: 'error', message: err.message });
   }
 });
-app.use('/api', routes);
+app.use('/', routes);
 
-app.use((req, res) => res.status(404).json({ erro: 'Rota não encontrada' }));
+//app.use((req, res) => res.status(404).json({ erro: 'Rota não encontrada' }));
+app.use((req, res) => {
+  console.log('404:', req.method, req.originalUrl);
+  res.status(404).json({ erro: 'Rota não encontrada' });
+});
 app.use(errorHandler);   // sempre o último
 
 module.exports = app;
