@@ -53,7 +53,7 @@ exports.login = async ({ email, password, tipo }) => {
   const ok = u && (await bcrypt.compare(password, u.password_hash));
   if (!ok) throw new AppError('Credenciais inválidas', 401);
 
-  // Se a app disser com que perfil está a entrar, tem de bater com o da BD
+  // O tipo de perfil da app deve convergir com o tipo da base de dados
   const tipoUtilizador = normalizarTipo(tipo);
   if (tipoUtilizador && tipoUtilizador !== u.tipo) throw new AppError('Credenciais inválidas', 401);
 
