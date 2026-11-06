@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'ecras/login_page.dart';
-import 'ecras/registo_page.dart';
-import 'ecras/splash_page.dart';
-import 'tema/cores.dart';
+import 'app_routes.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const ProntoFixApp());
@@ -17,20 +15,9 @@ class ProntoFixApp extends StatelessWidget {
     return MaterialApp(
       title: 'ProntoFix',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Cores.azul),
-        scaffoldBackgroundColor: Cores.fundo,
-        useMaterial3: true,
-      ),
-      // Rotas nomeadas (aula de navegação, exemplo 3).
-      // As áreas do cliente e do prestador abrem-se com
-      // MaterialPageRoute, porque recebem dados pelo construtor.
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashPage(),
-        '/login': (context) => const LoginPage(),
-        '/registo': (context) => const RegistoPage(),
-      },
+      theme: AppTheme.light,
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
     );
   }
 }

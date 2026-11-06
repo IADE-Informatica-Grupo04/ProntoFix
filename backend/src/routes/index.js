@@ -4,5 +4,5 @@ const router = require('express').Router();
 router.use('/auth', require('./auth.routes'));
 router.use('/categorias', require('./categorias.routes'));
 router.use('/pedidos', require('./pedidos.routes'));
-routes.use('/prestadores', require('./prestador.routes'))
+router.use('/prestadores', require('./prestadores.routes'))
 module.exports = router;
