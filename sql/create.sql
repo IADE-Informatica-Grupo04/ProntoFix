@@ -1,7 +1,6 @@
 -- ============================================================
---  ProntoFix — Base de Dados MySQL
+--  ProntoFix — create.sql
 --  Grupo 04 · Dispositivos Móveis · IADE / Universidade Europeia
---  2025-2026
 -- ============================================================
 
 CREATE DATABASE IF NOT EXISTS prontofix CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -18,6 +17,8 @@ CREATE TABLE utilizador (
     email         VARCHAR(180)    NOT NULL UNIQUE,
     password_hash VARCHAR(255)    NOT NULL,
     telefone      VARCHAR(20)         NULL,           -- o  (opcional)
+    latitude       DECIMAL(9,6)     NULL,              -- o
+    longitude      DECIMAL(9,6)     NULL,              -- o
     tipo          ENUM('cliente','tecnico','admin') NOT NULL,
     criado_em     DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -33,8 +34,7 @@ CREATE TABLE cliente (
     id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
     utilizador_id  INT UNSIGNED NOT NULL UNIQUE,      -- *  FK → utilizador
     morada         VARCHAR(255)     NULL,              -- o
-    latitude       DECIMAL(9,6)     NULL,              -- o
-    longitude      DECIMAL(9,6)     NULL,              -- o
+
 
     PRIMARY KEY (id),
     CONSTRAINT fk_cliente_utilizador
@@ -54,6 +54,9 @@ CREATE TABLE tecnico (
     avaliacao_media  DECIMAL(3,2)     NULL,            -- o  (0.00 a 5.00)
     disponivel       TINYINT(1)   NOT NULL DEFAULT 1,  -- *
     foto_url         VARCHAR(500)     NULL,            -- o
+    latitude         DECIMAL(9,6)     NULL,            -- o  localização atual (atribuição e mapa)
+    longitude        DECIMAL(9,6)     NULL,            -- o
+    localizacao_em   DATETIME         NULL,            -- o  quando foi atualizada
 
     PRIMARY KEY (id),
     CONSTRAINT fk_tecnico_utilizador
@@ -69,6 +72,7 @@ CREATE TABLE categoria_servico (
     id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome       VARCHAR(80)  NOT NULL UNIQUE,          -- *
     icone_url  VARCHAR(500)     NULL,                 -- o
+    preco_base DECIMAL(8,2) NOT NULL DEFAULT 40.00,   -- *  base da estimativa de preço
 
     PRIMARY KEY (id)
 );
@@ -79,7 +83,9 @@ CREATE TABLE categoria_servico (
 --     cliente_id   → cliente.id      (1:N obrigatório)
 --     tecnico_id   → tecnico.id      (1:N opcional — pode não ter técnico ainda)
 --     categoria_id → categoria_servico.id  (1:N obrigatório)
---     estado: 'pendente' | 'aceite' | 'em_progresso' | 'concluido' | 'cancelado'
+--     estado: 'criado' | 'atribuido' | 'a_caminho' | 'no_local' | 'em_curso'
+--             | 'concluido' | 'cancelado'
+--     codigo_qr: gerado por pedido; só o prestador atribuído o vê (confirma a chegada).
 -- ─────────────────────────────────────────────
 CREATE TABLE pedido (
     id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -87,9 +93,16 @@ CREATE TABLE pedido (
     tecnico_id   INT UNSIGNED     NULL,               -- o  FK → tecnico
     categoria_id INT UNSIGNED NOT NULL,               -- *  FK → categoria_servico
     descricao    TEXT         NOT NULL,               -- *
-    estado       ENUM('pendente','aceite','em_progresso','concluido','cancelado')
-                              NOT NULL DEFAULT 'pendente',
+    foto_url     VARCHAR(500)     NULL,               -- o
+    morada       VARCHAR(255)     NULL,               -- o  morada do serviço
+    latitude     DECIMAL(9,6)     NULL,               -- o  local do serviço
+    longitude    DECIMAL(9,6)     NULL,               -- o
+    estado       ENUM('criado','atribuido','a_caminho','no_local','em_curso','concluido','cancelado')
+                              NOT NULL DEFAULT 'criado',
+    preco_estimado     DECIMAL(8,2)  NULL,            -- o  estimativa mostrada ao cliente
+    tempo_estimado_min INT           NULL,            -- o  chegada prevista, em minutos
     preco_final  DECIMAL(8,2)     NULL,               -- o  (definido após conclusão)
+    codigo_qr    CHAR(36)         NULL,               -- o  confirmação de chegada
     criado_em    DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     concluido_em DATETIME         NULL,               -- o
 
