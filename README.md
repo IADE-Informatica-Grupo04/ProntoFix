@@ -10,7 +10,7 @@ Pede ajuda, acompanha o profissional no mapa e confirma a chegada por QR Code.
 ![Node.js](https://img.shields.io/badge/Node.js-REST-339933?logo=nodedotjs&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Relacional-4479A1?logo=mysql&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-Mockups-F24E1E?logo=figma&logoColor=white)
-![Estado](https://img.shields.io/badge/estado-1.ª%20entrega-orange)
+![Estado](https://img.shields.io/badge/estado-2.ª%20entrega-orange)
 
 **Universidade Europeia | IADE, Faculdade de Design, Tecnologia e Comunicação**
 Licenciatura em Engenharia Informática · 3.º semestre · 2026-2027
@@ -26,12 +26,12 @@ Projeto Multidisciplinar · **Grupo 04**
 |---|---|---|
 | Proposta inicial (v1) | ✅ Entregue (02.10.2026) | [PDF](Documentos/g04-proposta-v1.pdf)|
 | Proposta v2 (se houver alterações significativas) | ⏳ Por entregar | n/a |
-| Relatório intermédio | ⏳ Por entregar (06.11.2026) | n/a |
+| Relatório intermédio | ✅ Entregue(08.11.2026) | [PDF](Documentos/g04-relatorio-intermedio.pdf) [Markdown](Documentos/g04-relatorio-intermedio.md)|
 | Relatório final | ⏳ Por entregar (11.12.2026) | n/a |
 | Memória e arquivo documental | 🚧 Em construção | [`Projeto_ProntoFix/`](Projeto_ProntoFix/) |
-| Documentação REST | ⏳ Por entregar | n/a |
+| Documentação REST | ✅ Entregue | [Relatório Intermedio](Documentos/g04-relatorio-intermedio.pdf) |
 | Manual do utilizador | ⏳ Por entregar | n/a |
-| Mockups (Figma) | ✅ Entregue |[Figma Link](https://www.figma.com/proto/HrEaTVDkBjhdbS3D8eG3up/ProntoFix?nodeid=10-560&p=f&t=lUZXrJ15twiKHX0b-0&scaling=min-zoom&content-scaling=fixed&pageid=7%3A2) |
+| Mockups (Figma) | ✅ Entregue |[Figma Link](https://www.figma.com/design/HrEaTVDkBjhdbS3D8eG3up/ProntoFix?node-id=7-2&p=f&t=p5Bb5hwKgvmV4fnc-0) |
 
 
 ## 📑 Índice
@@ -373,9 +373,9 @@ ProntoFix/
 - [x] Project Charter, WBS e planeamento (Gantt)
 - [x] Proposta inicial (v1)
 - [x] Mockups completos no Figma
-- [ ] Modelo ER e base de dados
-- [ ] API REST
-- [ ] App Flutter (cliente e prestador)
+- [x] Modelo ER e base de dados
+- [x] API REST
+- [x] App Flutter (cliente e prestador)
 - [ ] Notificações, mapa em tempo real e QR Code
 - [ ] Testes funcionais e de usabilidade
 - [ ] Relatório final, poster e vídeo
