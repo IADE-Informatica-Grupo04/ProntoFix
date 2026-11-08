@@ -5,6 +5,7 @@
 
 USE prontofix;
 
+SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 -- ─────────────────────────────────────────────
 --  DADOS DE EXEMPLO (opcional)
 --  preco_base = base da estimativa de preço
