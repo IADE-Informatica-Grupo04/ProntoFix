@@ -27,6 +27,7 @@ VALUES
 ('João Silva',      'joao@email.com',      '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '912345678', 38.7223, -9.1393, 'cliente'),
 ('Ana Costa',       'ana@email.com',       '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '923456789', 41.1579, -8.6291, 'cliente'),
 ('Carlos Mendes',   'carlos@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '934567890', NULL,    NULL,    'tecnico'),
+('Sergio Mendes',   'carlos@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '934567890', NULL,    NULL,    'tecnico'),
 ('Admin ProntoFix', 'admin@prontofix.com', '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '900000000', NULL,    NULL,    'admin');
 
 
@@ -43,6 +44,7 @@ INSERT INTO tecnico
 (utilizador_id, especialidade, avaliacao_media, disponivel, latitude, longitude, localizacao_em)
 VALUES
 (3, 'Eletricidade', 5.00, 1, 38.7300, -9.1400, NOW());
+(4, 'Canalização', 5.00, 1, 35.7300, -8.1400, NOW());
 
 
 -- Estados: criado | atribuido | a_caminho | no_local | em_curso | concluido | cancelado
@@ -56,7 +58,7 @@ VALUES
     'concluido', 45.00, 15, 50.00, 'a0000000-0000-4000-8000-000000000001',
     NOW() - INTERVAL 2 DAY, NOW() - INTERVAL 2 DAY + INTERVAL 60 MINUTE),
 
-(2, 1, 2, 'Fuga de água debaixo do lava-loiça',
+(2, 2, 2, 'Fuga de água debaixo do lava-loiça',
     'Avenida Central, Porto', 41.1579, -8.6291,
     'em_curso', 80.00, 20, NULL, 'a0000000-0000-4000-8000-000000000002',
     NOW() - INTERVAL 90 MINUTE, NULL),
