@@ -30,6 +30,7 @@ Projeto Multidisciplinar · **Grupo 04**
 | Relatório final | ⏳ Por entregar (11.12.2026) | n/a |
 | Memória e arquivo documental | 🚧 Em construção | [`Projeto_ProntoFix/`](Projeto_ProntoFix/) |
 | Documentação REST | ✅ Entregue | [Relatório Intermedio](Documentos/g04-relatorio-intermedio.pdf) |
+| BD Report | ✅ Entregue | [PDF](Documentos/g04-bd-report.pdf) |
 | Manual do utilizador | ⏳ Por entregar | n/a |
 | Mockups (Figma) | ✅ Entregue |[Figma Link](https://www.figma.com/design/HrEaTVDkBjhdbS3D8eG3up/ProntoFix?node-id=7-2&p=f&t=p5Bb5hwKgvmV4fnc-0) |
 
