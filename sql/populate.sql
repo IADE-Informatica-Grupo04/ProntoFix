@@ -27,8 +27,9 @@ INSERT INTO utilizador
 VALUES
 ('João Silva',      'joao@email.com',      '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '912345678', 38.7223, -9.1393, 'cliente'),
 ('Ana Costa',       'ana@email.com',       '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '923456789', 41.1579, -8.6291, 'cliente'),
-('Carlos Mendes',   'carlos@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '934567890', NULL,    NULL,    'tecnico'),
-('Sergio Mendes',   'carlos@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '934567890', NULL,    NULL,    'tecnico'),
+('Carlos Mendes',   'carlos@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '954567890', NULL,    NULL,    'tecnico'),
+('Sergio Mendes',   'sergio@email.com',    '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '964567890', NULL,    NULL,    'tecnico'),
+('António Gonçalves',   'antonio@email.com','$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '974567890', NULL,    NULL,    'tecnico'),
 ('Admin ProntoFix', 'admin@prontofix.com', '$2b$10$ok/exshmY2/XZ40oE5xI4e9sh/nbxgpxZoLJ3VUGmV27HjwcL4ddO', '900000000', NULL,    NULL,    'admin');
 
 
@@ -46,7 +47,7 @@ INSERT INTO tecnico
 VALUES
 (3, 'Eletricidade', 5.00, 1, 38.7300, -9.1400, NOW());
 (4, 'Canalização', 5.00, 1, 35.7300, -8.1400, NOW());
-
+(5, 'Canalização', 0.00, 1, 25.7300, -9.5400, NOW());
 
 -- Estados: criado | atribuido | a_caminho | no_local | em_curso | concluido | cancelado
 -- preco_final só existe depois de concluído; antes disso há só o preco_estimado.
@@ -74,6 +75,7 @@ INSERT INTO avaliacao
 (pedido_id, cliente_id, tecnico_id, estrelas, comentario)
 VALUES
 (1, 1, 1, 5, 'Excelente serviço, técnico muito profissional e resolveu o problema rapidamente.');
+(2, 2, 2, 5, 'técnico muito profissional, resolveu o problema rapidamente.');
 
 
 
