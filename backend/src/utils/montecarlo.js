@@ -1,6 +1,5 @@
 // Estimativa do tempo de chegada do prestador por simulação de Monte Carlo.
-// Função pura: não usa a base de dados nem a rede (fácil de testar e de explicar).
-//
+// 
 // Modelo (tempo total, em minutos), repetido N vezes com valores aleatórios:
 //
 //     T = arranque + (distância_em_linha_reta × circuidade / velocidade) × 60 + atraso
@@ -12,8 +11,7 @@
 //                 (trânsito pesado, estacionamento, incidente)
 //
 // Estimativa devolvida: mediana (P50) e intervalo P10–P90.
-// Estes parâmetros são PRESSUPOSTOS (ainda não há dados reais): ajustar e justificar
-// no relatório. Com dados reais podem ser calibrados a partir dos tempos medidos.
+// Estes parâmetros são PRESSUPOSTOS (ainda não há dados reais):Com dados reais podem ser calibrados a partir dos tempos medidos.
 
 const PARAMETROS = Object.freeze({
   simulacoes: 5000,
