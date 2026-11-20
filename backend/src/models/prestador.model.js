@@ -1,6 +1,6 @@
 const db = require('../config/db');
 
-// Técnico livre, da categoria certa, mais próximo (Haversine em km: funciona em qualquer versão do MySQL/MariaDB)
+// Técnico livre, da categoria certa, mais próximo (Haversine em km)
 exports.maisProximo = async (categoriaId, lat, lng) => {
   const [rows] = await db.execute(
     `SELECT t.id,
